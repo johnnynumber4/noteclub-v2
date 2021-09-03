@@ -1,0 +1,60 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="blogs content">
+    <form id="form"> 
+      <input id="albumSearch" onkeyup="tableSearch()" type="search" name="q" placeholder="Search...">
+    </form>
+    <table id="albumTable" class="table table-bordered table-hover table-condensed">
+      <thead><tr>
+      <th title="Field #1">Tunes</th>
+      </tr></thead>
+    <% if (artist.length > 0) { %>
+      <% artist.forEach(listing => { %>
+
+        <tbody>
+          <tr>
+            <td>
+              <a class="single" href="/noteclub/<%= listing._id %>">
+                <h3 class="title"><%= listing.album %></h3>
+                <p class="snippet"><b><%= listing.artist %></b></p>
+                <p>Selected by: <%= listing.member %></p>
+              </a>
+            </td>
+          </tr>
+        </a>
+
+      <% }) %>
+    <% } else { %>
+      <p>There are no artists to display...</p>
+    <% } %>
+  </tbody></table>
+    
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+  <script>
+    function tableSearch() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("albumSearch");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("albumTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
+      }
+    }
+  </script>
+</body>
+</html>
