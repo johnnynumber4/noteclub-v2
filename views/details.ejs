@@ -44,7 +44,7 @@
         const data = await result.json();
         console.log(data.albums.items[0].external_urls.spotify);
         console.log(data.albums.items[0].images[0].url);
-        $( "div.album_link" ).replaceWith( `<a href="${data.albums.items[0].external_urls.spotify}"><%= blog.album %></a>` );
+        $( "div.album_link" ).replaceWith( `<a href="${data.albums.items[0].external_urls.spotify}" target="_blank"><%= blog.album %></a>` );
         return data.albums.items[0].external_urls.spotify;
       }
 
