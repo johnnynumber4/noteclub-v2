@@ -5,8 +5,8 @@
   <%- include("./partials/nav.ejs") %>
 
   <div class="blogs content">
-    <form id="form"> 
-      <input id="albumSearch" onkeyup="tableSearch()" type="search" name="q" placeholder="Search...">
+    <form id="form" autocomplete="off"> 
+      <input id="albumSearch" onkeypress="return event.keyCode != 13;" onkeyup="tableSearch()" type="search" name="q" placeholder="Search...">
     </form>
     <table id="albumTable" class="table table-bordered table-hover table-condensed">
       <thead><tr>
