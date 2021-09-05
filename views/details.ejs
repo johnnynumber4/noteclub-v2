@@ -3,12 +3,10 @@
   <body>
     <%- include("./partials/nav.ejs") %>
 
-    <div class="details content">
-      <h2><%= blog.album %></h2>
+    <div class="details content" style="text-align: center;">
+      <h2><div class="album_link"><%= blog.album %></div></h2>
       <div class="content">
         <p><%= blog.artist %></p>
-        <p>Selected by: <%= blog.member %></p>
-        <div class="album_link"></div>
         <div class="album_art"></div>
       </div>
     </div>
