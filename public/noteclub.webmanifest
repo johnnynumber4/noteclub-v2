@@ -4,7 +4,7 @@
   "display": "fullscreen",
   "icons": [
     {
-      "src": "icons/200px-Robb_Queen.jpg",
+      "src": "public/icons/200px-Robb_Queen.jpg",
       "sizes": "192x192",
       "type": "image/png"
     }
