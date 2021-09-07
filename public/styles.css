@@ -8,6 +8,11 @@
       background-color: black !important;
       color: rgb(255, 255, 255) !important;
     }
+
+    .table{
+      max-width: fit-content !important;
+    }
+
     p, h1, h2, h3, a, ul{
       margin: 0;
       padding: 0;

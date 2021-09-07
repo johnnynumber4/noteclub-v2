@@ -1,0 +1,15 @@
+{
+  "background_color": "black",
+  "description": "We talk about rock your face of music.",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "public/icons/200px-Robb_Queen.jpg",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "name": "Note Club",
+  "short_name": "NoteClub",
+  "start_url": "/NoteClub"
+}
