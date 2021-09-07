@@ -14,7 +14,6 @@
     <script type="text/javascript">
       const clientId = '34e18b8ad57f47b4a5c3dae5f3ac0ac7';
       const clientSecret = 'f5ea4afbfb4a4706b0016256a959530d';
-    
       // private methods
       const _getToken = async () => {
     
@@ -60,12 +59,9 @@
         $( "div.album_art" ).replaceWith( `<p><img src="${data.albums.items[0].images[0].url}"></p>` );
         return data.albums.items[0].images[0].url;
       }
-  
       getAlbum(`<%= blog.album %>%20<%= blog.artist %>`);
       getAlbumArt(`<%= blog.album %>%20<%= blog.artist %>`);
-      
     </script>
-
     <%- include("./partials/footer.ejs") %>
   </body>
 </html>
