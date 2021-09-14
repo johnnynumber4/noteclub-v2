@@ -25,6 +25,7 @@
     "mongoose": "^5.9.10",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12",
+    "simplebar": "^5.3.5",
     "spotify-web-api-js": "^1.5.1",
     "spotify-web-api-node": "^5.0.2"
   }

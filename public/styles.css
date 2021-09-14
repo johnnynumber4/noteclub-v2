@@ -79,6 +79,8 @@
     }
     .content{
       margin-left: 0px;
+      text-align: -webkit-center;
+      overflow-wrap: anywhere;
     }
 
     /* index styles */
