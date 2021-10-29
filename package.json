@@ -28,5 +28,8 @@
     "simplebar": "^5.3.5",
     "spotify-web-api-js": "^1.5.1",
     "spotify-web-api-node": "^5.0.2"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
   }
 }

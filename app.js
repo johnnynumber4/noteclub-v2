@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const noteclubRoutes = require('./routes/noteclubRoutes');
-const dbconfig = require("./dbconfig.json");
+require('dotenv').config()
 
 // express app
 const app = express();
@@ -10,11 +10,12 @@ const app = express();
 // connect to mongodb & listen for requests
 // DB Connection
 mongoose.connect(
-  dbconfig.mongoPass,
-  { useNewUrlParser: true  },
+  process.env.MONGO_URL,
+  { useNewUrlParser: true,
+    useUnifiedTopology: true
+  },
   () => console.log('connected to db')
 );
-
 
 // Listener
 app.listen(process.env.PORT || 5000);

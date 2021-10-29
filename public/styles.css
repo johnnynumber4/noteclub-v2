@@ -10,7 +10,7 @@
       text-align: center;
     }
 
-    p, h1, h2, h3, a, ul{
+    p, h1, h2, h3, a, ul, label, th{
       margin: 0;
       padding: 0;
       text-decoration: none;

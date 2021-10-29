@@ -18,8 +18,8 @@ function tableSearch() {
   }
 
 function completeAlbumDetails () {
-  const clientId = '34e18b8ad57f47b4a5c3dae5f3ac0ac7';
-  const clientSecret = 'f5ea4afbfb4a4706b0016256a959530d';
+  const clientId = process.env.SPOTIFY_CLIENT_ID;
+  const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
   // private methods
   console.log(`<%= blog.album %>%20<%= blog.artist %>`);
   const _getToken = async () => {
