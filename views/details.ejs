@@ -7,6 +7,7 @@
       <h2><div class="album_link"><%= blog.album %></div></h2>
       <div class="content">
         <p><%= blog.artist %></p>
+        <a href="https://music.youtube.com/playlist?list=<%= yt %>" target="_blank">Youtube Link</a>
         <div class="album_art"></div>
       </div>
     </div>
@@ -61,6 +62,9 @@
       }
       getAlbum(`<%= blog.album %>%20<%= blog.artist %>`);
       getAlbumArt(`<%= blog.album %>%20<%= blog.artist %>`);
+    </script>
+    <script>
+
     </script>
     <%- include("./partials/footer.ejs") %>
   </body>
