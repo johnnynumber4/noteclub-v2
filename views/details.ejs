@@ -4,11 +4,26 @@
     <%- include("./partials/nav.ejs") %>
 
     <div class="details content" style="text-align: center;">
-      <h2><div class="album_link"><%= blog.album %></div></h2>
-      <div class="content">
-        <p><%= blog.artist %></p>
-        <a href="https://music.youtube.com/playlist?list=<%= yt %>" target="_blank">Youtube Link</a>
-        <div class="album_art"></div>
+      <div><h2 style="color: white;"><%= blog.album %></h2></div>
+      <div>
+        <div><p style="margin-top: 10px;"><%= blog.artist %></p></div>
+      </div>
+      <% if (blog.theme) { %>
+  
+          <div><p class="pill"><%= blog.theme %></p></div>
+  
+      <% }  %>
+      <div class="flex-container" style="justify-content: center;">
+        <div>
+          <p style="margin-top: 10px;"><img style="width: 300px; height: 300px;" src="<%= albumArt %>"></p>
+          <a href="https://music.youtube.com/playlist?list=<%= yt %>" target="_blank">
+            <img src="/icons/Youtube_Music_icon.png" alt="YouTube Music Search" style="width: 80;height: 80;">
+          </a>
+          <div class="album_link"></div>
+        </div>
+        <div><p style="
+          margin-top: 10px;
+      "><%= albumDesc %></p></div>
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -42,29 +57,11 @@
         const data = await result.json();
         // console.log(data.albums.items[0].external_urls.spotify);
         // console.log(data.albums.items[0].images[0].url);
-        $( "div.album_link" ).replaceWith( `<a href="${data.albums.items[0].external_urls.spotify}" target="_blank"><%= blog.album %></a>` );
+        $( "div.album_link" ).replaceWith( `<a href="${data.albums.items[0].external_urls.spotify}" target="_blank"><img src="/icons/2111624.png" alt="Spotify Music Search" style="width: 80;height: 80;"></a>` );
         return data.albums.items[0].external_urls.spotify;
       }
 
-      const getAlbumArt = async (albumString) => {
-    
-        const token = await _getToken();
-        const result = await fetch(`https://api.spotify.com/v1/search?q=${albumString}&type=album&market=US&limit=10`, {
-            method: 'GET',
-            headers: { 'Authorization' : 'Bearer ' + token}
-        });
-
-        const data = await result.json();
-        console.log(data.albums.items[0].external_urls.spotify);
-        console.log(data.albums.items[0].images[0].url);
-        $( "div.album_art" ).replaceWith( `<p><img src="${data.albums.items[0].images[0].url}"></p>` );
-        return data.albums.items[0].images[0].url;
-      }
       getAlbum(`<%= blog.album %>%20<%= blog.artist %>`);
-      getAlbumArt(`<%= blog.album %>%20<%= blog.artist %>`);
-    </script>
-    <script>
-
     </script>
     <%- include("./partials/footer.ejs") %>
   </body>

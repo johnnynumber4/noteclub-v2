@@ -14,6 +14,10 @@ const NoteClubSchema = new Schema({
       type: String,
       required: true,
   },
+  theme: {
+      type: String,
+      required: false,
+  },
 }, { timestamps: true });
 
 const NoteClub = mongoose.model('NoteClub', NoteClubSchema);

@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const noteclubRoutes = require('./routes/noteclubRoutes');
 require('dotenv').config()
+const path = require('path');
 
 // express app
 const app = express();
@@ -24,7 +25,7 @@ app.listen(process.env.PORT || 5000);
 app.set('view engine', 'ejs');
 
 // middleware & static files
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use((req, res, next) => {

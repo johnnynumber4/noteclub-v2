@@ -7,9 +7,11 @@
   <div class="create-blog content">
     <form action="/noteclub" method="POST">
       <label for="album">Album Title:</label>
-      <input type="text" id="album" name="album">
+      <input autocomplete="off" type="text" id="album" name="album">
       <label for="artist">Artist:</label>
-      <input type="text" id="artist" name="artist">
+      <input autocomplete="off" type="text" id="artist" name="artist">
+      <label for="theme">Theme (if applicable)</label>
+      <input autocomplete="off" type="text" id="theme" name="theme">
       <label for="member">Member Name:</label>
       <div id=memberSection>
         <select type="text" id="member" name="member">

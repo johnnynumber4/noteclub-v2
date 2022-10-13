@@ -1,7 +1,7 @@
 const NoteClub = require('../models/NoteClub');
-const ytMusic = require('node-youtube-music');
 const YoutubeMusicApi = require('youtube-music-api');
 const api = new YoutubeMusicApi();
+const wiki = require('wikijs').default;
 
 const noteclub_index = (req, res) => {
   NoteClub.find().sort({ createdAt: -1 })
@@ -18,12 +18,20 @@ const noteclub_details = (req, res) => {
   NoteClub.findById(id)
     .then(async result => {
       api.initalize() // Retrieves Innertube Config
-      .then(info => {
-          api.search(result.album + ' ' + result.artist, "album").then(resultyt => {
-              const ytResultLink = (resultyt.content[0].playlistId);
-              res.render('details', { blog: result, title: 'Note Club Details', yt: ytResultLink });
+      .then(async info => {
+        api.search(result.album + ' ' + result.artist, "album")
+        .then(async resultyt => {
+          const ytResultLink = (resultyt.content[0].playlistId);
+          const ytThumbnail = (resultyt.content[0].thumbnails[2].url);
+          wiki().find(result.album + ' ' + result.artist + ' ' + '(album)')
+            .then(async page => {
+              await page.summary()
+              .then(async wikiDesc => {
+                await res.render('details', { blog: result, title: 'Note Club Details', yt: ytResultLink, albumDesc: wikiDesc, albumArt: ytThumbnail });
+            })
           })
-        });      
+        })
+      });      
     })
     .catch(err => {
       console.log(err);
